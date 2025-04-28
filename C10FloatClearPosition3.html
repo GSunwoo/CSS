@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C10FloatClearPosition3.html</title>
+</head>
+<body>
+    <style>
+        div.sticky{
+            /* 스티커처럼 상단에 box를 붙일때 사용한다. */
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            text-align: center;
+            background-color: #cae8ca;
+            border: 2px solid #4caf50;
+        }
+        /* 
+        한국에서 주로 사용하는 크롬, 엣지와 외국에서 사용하는 오페라, 사파리 등의
+        웹브라우저는 서로 사용하는 엔진이 달라 같은 CSS속성이라도 다르게 표현될
+        수 있다.
+        크로스 브라우징을 위해 몇가지 접두어가 존재하는데
+        -webkit- : 구글 크롬, 사파리 브라우저에 적용
+        -mox- : 파이어폭스에 적용
+        -ms- : 익스플로러. 연재는 거의 사용하지 않음.
+        -o- : 오페라이 적용
+        */
+    </style>
+    <p>스티키 상단 영역</p>
+
+    <div class="sticky">sticky 박스</div>
+
+    <div>
+        <p>
+            국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 
+            필요한 계획을 수립·시행하여야 한다. 평화통일정책의 수립에 관한 대통령의 
+            자문에 응하기 위하여 민주평화통일자문회의를 둘 수 있다. 모든 국민은 
+            신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 
+            체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 
+            의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.
+            <br>
+            <br>
+            재판의 심리와 판결은 공개한다. 다만, 심리는 국가의 안전보장 또는 
+            안녕질서를 방해하거나 선량한 풍속을 해할 염려가 있을 때에는 법원의 
+            결정으로 공개하지 아니할 수 있다. 제1항의 탄핵소추는 국회재적의원 
+            3분의 1 이상의 발의가 있어야 하며, 그 의결은 국회재적의원 과반수의 
+            찬성이 있어야 한다. 다만, 대통령에 대한 탄핵소추는 국회재적의원 
+            과반수의 발의와 국회재적의원 3분의 2 이상의 찬성이 있어야 한다.     
+        </p>
+        <p style="margin-top: 1000px;">
+            대통령은 법률에서 구체적으로 범위를 정하여 위임받은 사항과 법률을 
+            집행하기 위하여 필요한 사항에 관하여 대통령령을 발할 수 있다. 모든 
+            국민은 양심의 자유를 가진다. 군인 또는 군무원이 아닌 국민은 대한민국의 
+            영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 
+            관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 
+            군사법원의 재판을 받지 아니한다. 
+        </p>
+    </div>
+
+    <style>
+        /* 
+        fixed 속성값은 웹브라우저의 특정 위치에 레이어를 고정하고 싶을때 사용한다.
+        해당 속성이 적용되면 스크롤에 영향을 받지 않는다. 단위 입력시 0인 경우에는
+        px를 생략할 수 있다.
+        */
+        div.fixed{
+            position: fixed;
+            /* 우측하단에 고정한다. */
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+            background-color: #cae8ca;
+            border: 2px solid #4caf50;
+        }
+    </style>
+
+    <div class="fixed">
+        fixed 박스
+    </div>
+
+    <br><br><br><br><br><br><br><br>  
+</body>
+</html>

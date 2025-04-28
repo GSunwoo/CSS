@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C11Layout.html</title>
+    <!-- <style>
+        /* 문서 전체의 div에 테두리를 지정하여 영역을 확인한다. */
+        div{border: 1px solid rebeccapurple;}
+        /* 좌측 메뉴와 우측 컨텐츠 영역을 수평방향으로 정렬하기 위해 float속성을
+        사용하여 좌/우측으로 정렬한다. 단 이 경우 border가 적용된 상태이므로 100%를
+        조금 넘어가 컨텐츠 영역이 아래로 떨어진다. 이 경우 width의 %를 살짝 조정해
+        준다. */
+        .left_menu{width: 29%; float: left;}
+        .contents{float: right;width: 70%;}
+        /* 앞에서 사용한 float속성이 남아있는 경우 카피라이트 영역이 상단으로 파고
+        들어가기 때문에 claer를 통해 파괴해야한다. */
+        .copyright{clear: both;}
+    </style> -->
+    <link rel="stylesheet" href="./style/div_layout.css">
+</head>
+<body>
+    <div class="AllWrap">
+        <!-- 
+        GNB영역 : Global Navigation Bar. 일반적으로 상단 부분은 페이지를 이동하더라도
+            변하지 않는 메뉴로 구성된다. 즉 웹사이트 전체에서 사용할 수 있는 메뉴바
+            라는 뜻이다.
+        -->
+        <div class="header">
+            <div class="logo">
+                <img src="./image/seoul_logo.png" alt="서울특별시">
+            </div>
+            <div class="top_menu">
+                <ul>
+                    <li><a href="http://tjoeun.co.kr" class="top_link">HOME</a></li>
+                    <li><a href="#login" class="top_link">로그인</a></li>
+                    <li><a href="#regist" class="top_link">회원가입</a></li>
+                    <li><a href="#notice" class="top_link">공지사항</a></li>
+                    <li><a href="#board" class="top_link">게시판</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="body">
+            <!-- 
+            LNB영역 : Local Navigation Bar. 주로 대메뉴에 따른 서브메뉴를 출력한다.
+                즉 특정 카테고리에 속하는 부분을 말한다.
+            -->
+            <div class="left_menu">
+                <ul>
+                    <li><a href="#Login" class="left_link">로그인</a></li>
+                    <li><a href="#Regist" class="left_link">회원가입</a></li>
+                    <li><a href="#Notice" class="left_link">공지사항</a></li>
+                    <li><a href="#Board" class="left_link">게시판</a></li>
+                </ul>
+            </div>
+            <!-- 컨텐츠 영역 : 주로 해당 페이지에서 가장 핵심이 되는 내용을 출력 -->
+            <div class="contents">
+                <h2>로렘 입숨 한글</h2>
+                국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 
+                필요한 계획을 수립·시행하여야 한다. 평화통일정책의 수립에 관한 대통령의 
+                자문에 응하기 위하여 민주평화통일자문회의를 둘 수 있다. 모든 국민은 
+                신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 
+                체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 
+                의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.
+                <br>
+                <br>
+                재판의 심리와 판결은 공개한다. 다만, 심리는 국가의 안전보장 또는 
+                안녕질서를 방해하거나 선량한 풍속을 해할 염려가 있을 때에는 법원의 
+                결정으로 공개하지 아니할 수 있다. 제1항의 탄핵소추는 국회재적의원 
+                3분의 1 이상의 발의가 있어야 하며, 그 의결은 국회재적의원 과반수의 
+                찬성이 있어야 한다. 다만, 대통령에 대한 탄핵소추는 국회재적의원 
+                과반수의 발의와 국회재적의원 3분의 2 이상의 찬성이 있어야 한다.  
+                <br>
+                <br>
+                대통령은 법률에서 구체적으로 범위를 정하여 위임받은 사항과 법률을 
+                집행하기 위하여 필요한 사항에 관하여 대통령령을 발할 수 있다. 모든 
+                국민은 양심의 자유를 가진다. 군인 또는 군무원이 아닌 국민은 대한민국의 
+                영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 
+                관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 
+                군사법원의 재판을 받지 아니한다. 
+            </div>
+        </div>
+        <hr>
+        <!-- 카피라이트 영역 : 주로 회사정보나 로고 등을 배치한다. -->
+        <div class="copyright">
+            <div class="copy_logo">
+                <img src="./image/seoul_copyright.png" alt="서울특별시" style="margin-top: 8px;">
+            </div>
+            <div class="copy_info">
+                서울특별시청 04524 서울특별시 중구 세종대로 110 <br>
+                대표전화 : 02-120 또는 02-731-2120 (365일 24시간 운영/유료) <br>
+                &copy; Seoul Metroploitan Government all rights reserved
+            </div>
+        </div>
+    </div>
+</body>
+</html>
