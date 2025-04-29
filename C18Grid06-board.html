@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C18Grid06-board.html</title>
+    <link rel="stylesheet" href="./style/content.css">
+</head>
+<body>
+    <div class="page">
+        <!-- GNB (상단) -->
+        <header class="gnb">
+          <div class="logo">MySite</div>
+          <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </header>
+        <!-- LNB (좌측 네비게이션) -->
+        <nav class="lnb">
+          <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Reports</a></li>
+          </ul>
+        </nav>
+        <!-- 본문 영역 (게시판) -->
+        <main class="content">
+          <h2>공지사항</h2>
+          <div class="board">
+            <h3>최근 공지</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>시스템 점검 공지</td>
+                  <td>관리자</td>
+                  <td>2025-04-27</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>서비스 업데이트 안내</td>
+                  <td>홍길동</td>
+                  <td>2025-04-25</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>회원가입 정책 변경</td>
+                  <td>관리자</td>
+                  <td>2025-04-20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+        <!-- Footer (하단) -->
+        <footer class="footer">
+          <p>&copy; 2025 MySite. All rights reserved.</p>
+        </footer>
+      </div>
+      <script>
+        function toggleMenu() {
+          const gnb = document.querySelector('.gnb');
+          gnb.classList.toggle('active');
+        }
+      </script>    
+</body>
+</html>
