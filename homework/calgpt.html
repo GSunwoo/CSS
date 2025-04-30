@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>계산기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .calculator {
+      display: inline-block;
+      background: #DDDDDD;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .display {
+      background: #70C738;
+      color: #373737;
+      text-align: right;
+      font-size: 2em;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      height: 50px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      grid-gap: 10px;
+    }
+
+
+    button {
+      padding: 15px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .gray { background: #888888; }
+    .gray:hover{ background-color: #aaaaaa;}
+    .dark { background: #373737; }
+    .dark:hover{ background-color: #888888;}
+    .orange { background: #FA960A; }
+    .orange:hover{ background-color: #f5bc6c;}
+
+    .btn-wide {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>계산기</h3>
+  <p><strong>파일명:</strong> calculator.html</p>
+
+  <div class="calculator">
+    <div id="result" class="display">123+654</div>
+    <div class="buttons">
+      <button class="gray btn-wide" onclick="backspace()">BackSpace</button>
+      <button class="gray btn-wide" onclick="clearDisplay()">C</button>
+      <button class="dark" onclick="append('1')">1</button>
+      <button class="dark" onclick="append('2')">2</button>
+      <button class="dark" onclick="append('3')">3</button>
+      <button class="orange" onclick="append('/')">/</button>
+      <button class="dark" onclick="append('4')">4</button>
+      <button class="dark" onclick="append('5')">5</button>
+      <button class="dark" onclick="append('6')">6</button>
+      <button class="orange" onclick="append('*')">x</button>
+      <button class="dark" onclick="append('7')">7</button>
+      <button class="dark" onclick="append('8')">8</button>
+      <button class="dark" onclick="append('9')">9</button>
+      <button class="orange" onclick="append('+')">+</button>
+      <button class="dark" onclick="calculate()">=</button>
+      <button class="dark" onclick="append('0')">0</button>
+      <button class="dark" onclick="append('.')">.</button>
+      <button class="orange" onclick="append('-')">-</button>
+    </div>
+  </div>
+
+  <script>
+    const result = document.getElementById('result');
+
+    function append(char) {
+      if (result.innerText === '0') result.innerText = '';
+      result.innerText += char;
+    }
+
+    function clearDisplay() {
+      result.innerText = '';
+    }
+
+    function backspace() {
+      result.innerText = result.innerText.slice(0, -1);
+    }
+
+    function calculate() {
+      try {
+        result.innerText = eval(result.innerText.replace('x', '*'));
+      } catch {
+        result.innerText = 'Error';
+      }
+    }
+  </script>
+
+</body>
+</html>

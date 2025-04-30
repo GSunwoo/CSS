@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator.html</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            background-color: black;
+            padding: 10px;
+            border-radius: 10px;
+            width: 300px;
+            height: 400px;
+        }
+
+        .container div {
+            line-height: 20px;
+        }
+
+        .mergeCol4{
+            grid-column: span 4;
+        }
+
+        .mergeCol2{
+            grid-column: span 2;
+        }
+
+        .button{
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            color: #dddddd;
+            background-color: #373737;
+        }
+
+        .button:hover{
+            background-color: #888888;
+        }
+        
+        .panel{
+            border-radius: 5px;
+            text-align: right;
+            padding: 15px;
+            color: #373737;
+            background-color: #70c738;
+            font-size: 40px;
+        }
+
+        .oper{
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            color: #dddddd;
+            background-color: #fa960a;
+        }
+
+        .oper:hover{
+            background-color: #f5bc6c;
+        }
+
+        .clear{
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            color: #dddddd;
+            background-color: #888888;
+        }
+
+        .clear:hover{
+            background-color: #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">계산기</h2>
+    <div class="container">
+        <div class="panel mergeCol4">123+654</div>
+        <div class="clear mergeCol2">BackSpace</div>
+        <div class="clear mergeCol2">C</div>
+        <div class="button">1</div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        <div class="oper">/</div>
+        <div class="button">4</div>
+        <div class="button">5</div>
+        <div class="button">6</div>
+        <div class="oper">x</div>
+        <div class="button">7</div>
+        <div class="button">8</div>
+        <div class="button">9</div>
+        <div class="oper">+</div>
+        <div class="button">=</div>
+        <div class="button">0</div>
+        <div class="button">.</div>
+        <div class="oper">-</div>
+    </div>
+</body>
+</html>
