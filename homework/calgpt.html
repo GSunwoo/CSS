@@ -61,54 +61,120 @@
   <h3>계산기</h3>
   <p><strong>파일명:</strong> calculator.html</p>
 
+  <div id="calNote">0</div>
+  <div id="calOp"></div>
+
   <div class="calculator">
-    <div id="result" class="display">123+654</div>
+    <div id="panel" class="display">0</div>
     <div class="buttons">
+
       <button class="gray btn-wide" onclick="backspace()">BackSpace</button>
       <button class="gray btn-wide" onclick="clearDisplay()">C</button>
-      <button class="dark" onclick="append('1')">1</button>
-      <button class="dark" onclick="append('2')">2</button>
-      <button class="dark" onclick="append('3')">3</button>
-      <button class="orange" onclick="append('/')">/</button>
-      <button class="dark" onclick="append('4')">4</button>
-      <button class="dark" onclick="append('5')">5</button>
-      <button class="dark" onclick="append('6')">6</button>
-      <button class="orange" onclick="append('*')">x</button>
-      <button class="dark" onclick="append('7')">7</button>
-      <button class="dark" onclick="append('8')">8</button>
-      <button class="dark" onclick="append('9')">9</button>
-      <button class="orange" onclick="append('+')">+</button>
+
+      <button class="dark" onclick="appendNum('1')">1</button>
+      <button class="dark" onclick="appendNum('2')">2</button>
+      <button class="dark" onclick="appendNum('3')">3</button>
+      <button class="orange" onclick="appendOp('/')">/</button>
+
+      <button class="dark" onclick="appendNum('4')">4</button>
+      <button class="dark" onclick="appendNum('5')">5</button>
+      <button class="dark" onclick="appendNum('6')">6</button>
+      <button class="orange" onclick="appendOp('*')">x</button>
+
+      <button class="dark" onclick="appendNum('7')">7</button>
+      <button class="dark" onclick="appendNum('8')">8</button>
+      <button class="dark" onclick="appendNum('9')">9</button>
+      <button class="orange" onclick="appendOp('+')">+</button>
+
       <button class="dark" onclick="calculate()">=</button>
-      <button class="dark" onclick="append('0')">0</button>
-      <button class="dark" onclick="append('.')">.</button>
-      <button class="orange" onclick="append('-')">-</button>
+      <button class="dark" onclick="appendNum('0')">0</button>
+      <button class="dark" onclick="appendDot('.')">.</button>
+      <button class="orange" onclick="appendOp('-')">-</button>
     </div>
   </div>
 
   <script>
-    const result = document.getElementById('result');
+    const panel = document.getElementById('panel');
+    const calNote = document.getElementById('calNote');
+    const calOp = document.getElementById('calOp');
 
-    function append(char) {
-      if (result.innerText === '0') result.innerText = '';
-      result.innerText += char;
+    var lastIndex = '0';
+
+    function appendNum(num) {
+      if(!(isNaN(lastIndex))||lastIndex==='.'){
+        if (panel.innerText === '0') {
+          panel.innerText = '';
+          calNote.innerText = '';
+        }
+        panel.innerText += num;
+        calNote.innerText += num;
+      }
+      else{
+        panel.innerText = '';
+        panel.innerText += num;
+        calNote.innerText += num;
+      }
+
+      lastIndex = num;
+    }
+
+    function appendOp(op){
+      if(lastIndex==='.') return;
+      calOp.innerText = op;
+      if(!(isNaN(lastIndex))){
+        calNote.innerText += op;
+      }
+      else{
+        calNote.innerText = calNote.innerText.slice(0, -1);
+        calNote.innerText += op;
+      }
+      lastIndex = op;
+    }
+    
+    function appendDot(dot){
+      if(panel.innerText.includes('.')) return;
+      if(isNaN(lastIndex)) return;
+
+      panel.innerText += dot;
+      calNote.innerText += dot;
+
+      lastIndex = dot;
     }
 
     function clearDisplay() {
-      result.innerText = '';
+      panel.innerText = '0';
+      calNote.innerText = '0';
+      calOp.innerText = '';
+      lastIndex='0';
     }
 
     function backspace() {
-      result.innerText = result.innerText.slice(0, -1);
+      if(isNaN(lastIndex)){
+        return;
+      }
+      if(panel.innerText === '0'){
+        return;
+      }
+      panel.innerText = panel.innerText.slice(0, -1);
+      calNote.innerText = calNote.innerText.slice(0, -1);
+      if(panel.innerText==''){
+        panel.innerText = '0';
+      }
+      lastIndex = calNote.innerText.charAt(calNote.innerText.length-1);
+      console.log(lastIndex);
     }
 
     function calculate() {
       try {
-        result.innerText = eval(result.innerText.replace('x', '*'));
+        if(!(isNaN(lastIndex))){
+          panel.innerText = eval(calNote.innerText);
+          calNote.innerText = panel.innerText;
+        } 
       } catch {
-        result.innerText = 'Error';
+        panel.innerText = 'Error';
       }
     }
   </script>
-
+// 점 지우기 해야함
 </body>
 </html>
