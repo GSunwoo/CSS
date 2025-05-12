@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>계산기</title>
+  <title>Calculator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -61,8 +61,8 @@
   <h3>계산기</h3>
   <p><strong>파일명:</strong> calculator.html</p>
 
-  <div id="calNote">0</div>
-  <div id="calOp"></div>
+  <div hidden id="calNote">0</div>
+  <div hidden id="calOp"></div>
 
   <div class="calculator">
     <div id="panel" class="display">0</div>
@@ -149,7 +149,7 @@
     }
 
     function backspace() {
-      if(isNaN(lastIndex)){
+      if(isNaN(lastIndex)&&lastIndex!='.'){
         return;
       }
       if(panel.innerText === '0'){
@@ -175,6 +175,5 @@
       }
     }
   </script>
-// 점 지우기 해야함
 </body>
 </html>

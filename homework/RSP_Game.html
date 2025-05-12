@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+    <script>
+        var rspImg 
+            = ['../images/scissors.jpg','../images/rock.jpg','../images/paper.jpg'];
+        function rsp(player){
+            let computer = Math.floor(Math.random() * 3)+1;
+
+            flag = player-computer;
+            resultStr ='';
+
+            switch(flag){
+                case 0:
+                    resultStr='비겼습니다.';
+                    break;
+                case 1: case -2:
+                    resultStr='이겼습니다.';
+                    break;
+                case -1: case 2:
+                    resultStr='졌습니다.';
+                    break;
+            }
+
+            document.getElementById('computer').src = rspImg[computer-1];
+            document.getElementById('player').src = rspImg[player-1];
+
+            document.getElementById('result').innerText = resultStr;
+        }
+    </script>
+</head>
+<body>
+    <table border="1px" cell-spacing="1px">
+        <tr>
+            <td>컴퓨터</td>
+            <td>나</td>
+        </tr>
+        <tr>
+            <td>
+                <img src="../images/start.png" alt="" id="computer">
+            </td>
+            <td>
+                <img src="../images/start.png" alt="" id="player">
+            </td>
+        </tr>
+        <tr style="height: 30px; color: red; font-weight: bold; font-size: 1.5em;">
+            <td colspan="2" id="result"></td>
+        </tr>
+    </table>
+    <button type="button" onclick="rsp(1)">가위</button>
+    <button type="button" onclick="rsp(2)">바위</button>
+    <button type="button" onclick="rsp(3)">보</button>
+</body>
+</html>
