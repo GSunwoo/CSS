@@ -8,6 +8,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 30px;
+      user-select: none;
     }
 
     .calculator {
@@ -26,12 +27,13 @@
       border-radius: 5px;
       margin-bottom: 10px;
       height: 50px;
+      overflow: hidden;
     }
 
     .buttons {
       display: grid;
       grid-template-columns: repeat(4, 80px);
-      grid-gap: 10px;
+      grid-gap: 10px;    
     }
 
 
@@ -62,7 +64,6 @@
   <p><strong>파일명:</strong> calculator.html</p>
 
   <div hidden id="calNote">0</div>
-  <div hidden id="calOp"></div>
 
   <div class="calculator">
     <div id="panel" class="display">0</div>
@@ -120,7 +121,6 @@
 
     function appendOp(op){
       if(lastIndex==='.') return;
-      calOp.innerText = op;
       if(!(isNaN(lastIndex))){
         calNote.innerText += op;
       }
@@ -144,7 +144,6 @@
     function clearDisplay() {
       panel.innerText = '0';
       calNote.innerText = '0';
-      calOp.innerText = '';
       lastIndex='0';
     }
 
@@ -163,7 +162,7 @@
       lastIndex = calNote.innerText.charAt(calNote.innerText.length-1);
       console.log(lastIndex);
     }
-
+    
     function calculate() {
       try {
         if(!(isNaN(lastIndex))){
